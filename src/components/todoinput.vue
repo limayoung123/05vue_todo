@@ -27,9 +27,9 @@ export default {
             // data값에 변수를 넣었을때 그 값을 갖고오기위해서 this값을 넣어서 newTotoItem
             // 값을 갖고오는것
             let value = this.newTodoItem;
-            localStorage.setItem(value,value);
-            // this.$emit('addTodo',value);
-            // $emit('',전송되는값)
+            //localStorage.setItem(value,value);
+            this.$emit('addTodo',value);
+            // $emit('이름',전송되는값)
             this.clearInput();
         },
         clearInput(){
