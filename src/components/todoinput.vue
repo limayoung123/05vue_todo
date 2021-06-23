@@ -9,15 +9,26 @@
             <i class="addBtn fas fa-plus"></i>
         </button>
     </div>
- 
+ <modal v-if="modal" @click="modal=false">
+ <template v-slot:header>경고</template>
+ <template v-slot:footer @click="modal=false">
+     할 일을 입력하세요
+     <i class="closeModalBtn fa fa-times"></i>
+ </template>
+     <!-- v-slot:명작 modal로 넘어가서 값이 출력되는것 -->
+     
+ </modal>
 </template>
 
 <script>
+import modal from './modal.vue'
 export default {
     name:'input',
     data(){
         return{
             newTodoItem:'',
+            modal:'false',
+            
             
         }
     },
@@ -26,15 +37,21 @@ export default {
             console.log(this.newTodoItem);
             // data값에 변수를 넣었을때 그 값을 갖고오기위해서 this값을 넣어서 newTotoItem
             // 값을 갖고오는것
-            let value = this.newTodoItem;
+            if(this.newTodoItem !== ''){
+            // newTodoItem이 빈공간이 아니면 실행시켜야하는것
+            let value = this.newTodoItem && this.newTodoItem.trim();
             //localStorage.setItem(value,value);
             this.$emit('addTodo',value);
             // $emit('이름',전송되는값)
             this.clearInput();
+            }else{this.modal = true;}
         },
         clearInput(){
             this.newTodoItem = '';
         }
+    },
+    components:{
+        modal,
     }
 }
 </script>

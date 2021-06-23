@@ -5,7 +5,7 @@
   input에서 값을 받았음 -->
   <todolist :todoItems="todoItems" @removeTodo="removeTodo"/>
   <!-- 값을 받아오고 함수로 실행시켜줘야함 -->
-  <todofooter />
+  <todofooter @clearTodo="clearTodo"/>
 </template>
 
 <script>
@@ -50,6 +50,11 @@ export default {
         localStorage.removeItem(todoItem)
         this.todoItems.splice(index,1)
         // 배열을 삭제할때 splice(index,1는 1개를 지울때)
+      },
+      clearTodo(){
+        localStorage.clear();
+        this.todoItems=[]
+        // 빈공간으로 넣어준다는 뜻
       }
     }
 }
