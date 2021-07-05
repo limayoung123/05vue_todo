@@ -64,7 +64,7 @@ export default {
     border-radius: 5px; margin-bottom:10px;}
     .inputBox input{border-style: none; font-size:1rem;}
 
-    .addContainer{float:right;border-style: none;
+    .addContainer{float:right; border-style: none;
     background: linear-gradient(to right, #6478FB, #8763FB);
     display:inline-block; width:3rem; height: 50px;border-radius: 0 5px 5px 0;}
     .addBtn{color:#fff;}
